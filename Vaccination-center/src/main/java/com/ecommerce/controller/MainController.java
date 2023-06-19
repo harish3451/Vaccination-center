@@ -1,5 +1,7 @@
 package com.ecommerce.controller;
 
+import java.util.List;
+
 import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
@@ -12,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ecommerce.entity.Citizens;
 import com.ecommerce.entity.UserDetails;
+import com.ecommerce.repository.CitizenRepo;
 import com.ecommerce.repository.UserRepository;
 
 
@@ -21,6 +25,9 @@ public class MainController {
 	
 	@Autowired
 	UserRepository userrepo;
+	
+	@Autowired
+	CitizenRepo crepo;
 	
 	@PostMapping("/login")
 	public String Login(@RequestParam("username") String name, @RequestParam("password") String password, Model model)
@@ -47,10 +54,14 @@ public class MainController {
 	public String Register(@RequestParam("username") String name, @RequestParam("password") String password) {
 		UserDetails user = new UserDetails(name,password);
 		userrepo.save(user);
-		
-		
 		return "index";
 	}
 	
+	@GetMapping("/citizens")
+	public String Citizenlist(Model model) {
+		List<Citizens> cs  = crepo.findAll();
+		model.addAttribute("cs",cs);
+		return "citizens";
+	}
 	
 }

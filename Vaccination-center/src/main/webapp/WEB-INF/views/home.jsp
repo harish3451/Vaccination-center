@@ -14,6 +14,3 @@ td{
 	<td><a href="#">Log Out</a></td>
 	<td>Welcome, admin</td>
 </table>
-
-
-<h4>Welcome to home page</h4>

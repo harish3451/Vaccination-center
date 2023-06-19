@@ -15,19 +15,19 @@ public class Citizens {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	private int Name;
+	private String Name;
 	
 	
 	@ManyToOne
 	private VaccinationCenter center;
 
 
-	public int getName() {
+	public String getName() {
 		return Name;
 	}
 
 
-	public void setName(int name) {
+	public void setName(String name) {
 		Name = name;
 	}
 
