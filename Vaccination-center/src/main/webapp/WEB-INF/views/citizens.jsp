@@ -1,8 +1,8 @@
+
 <jsp:include page="home.jsp" />
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 
-<c:forEach var="person" items="${cs} ">
-	
-	${person.Name}
-</c:forEach>
+ <c:forEach var="person" items="${cs}"> 
+ ${person.id}, ${person.name }, ${person.center.city}, ${person.center.id }, ${person.center.centerName } <a >Update</a> <a >Delete</a>
+</c:forEach> 

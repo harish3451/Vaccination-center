@@ -1,4 +1,4 @@
-package com.ecommerce.entity;
+package com.vaccinationCenter.entity;
 
 
 import java.util.ArrayList;
@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
@@ -19,7 +20,9 @@ public class VaccinationCenter {
 	private int id;
 	
 	private String CenterName;
-	private String City;
+	
+	@ManyToOne
+	private City City;
 	
 	@OneToMany
 	List<Citizens> person = new ArrayList<>();
@@ -45,11 +48,11 @@ public class VaccinationCenter {
 		CenterName = centerName;
 	}
 
-	public String getCity() {
+	public City getCity() {
 		return City;
 	}
 
-	public void setCity(String city) {
+	public void setCity(City city) {
 		City = city;
 	}
 

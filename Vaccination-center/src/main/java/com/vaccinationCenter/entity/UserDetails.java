@@ -1,4 +1,4 @@
-package com.ecommerce.entity;
+package com.vaccinationCenter.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

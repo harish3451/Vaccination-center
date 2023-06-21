@@ -1,9 +1,9 @@
-package com.ecommerce.repository;
+package com.vaccinationCenter.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.ecommerce.entity.UserDetails;
+import com.vaccinationCenter.entity.UserDetails;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserDetails, Integer>{

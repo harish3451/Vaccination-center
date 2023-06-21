@@ -1,4 +1,4 @@
-package com.ecommerce.entity;
+package com.vaccinationCenter.entity;
 
 import java.util.List;
 
