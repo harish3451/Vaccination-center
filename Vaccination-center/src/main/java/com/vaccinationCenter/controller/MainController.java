@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -115,5 +116,64 @@ public class MainController {
 		List<VaccinationCenter> vc1 = vcRepo.findAll();
 		model.addAttribute("vc",vc1);
 		return "center";
+	}
+	
+	@GetMapping("/viewCenter/{id}")
+	public String viewCenter(@PathVariable("id") int id, Model model) {
+		
+		VaccinationCenter vc = vcRepo.findById(id).get();
+		List<Citizens> cz = cRepo.findBycenterId(vc.getId());
+		
+		model.addAttribute("vc",vc);
+		model.addAttribute("cz",cz);
+		return "vaccinationCenter";
+	}
+	
+	@GetMapping("/editCenter/{id}")
+	public String edit(@PathVariable("id") int id, Model model) {
+		VaccinationCenter vc = vcRepo.findById(id).get();
+		List<City> city = cityRepo.findAll();
+		model.addAttribute("city", city);
+		model.addAttribute("vc",vc);
+		return "editCenter";
+	}
+	
+	@PostMapping("/edit/{id}")
+	public String updateCenter(@PathVariable("id") int id, @RequestParam("center_name") String name, @RequestParam("center_city") int city_id , Model model) {
+		VaccinationCenter vc = vcRepo.findById(id).get();
+		vc.setCenterName(name);
+		City c = cityRepo.findById(city_id).get();
+		vc.setCity(c);
+		vcRepo.save(vc);
+		List<VaccinationCenter> vc1 = vcRepo.findAll();
+		model.addAttribute("vc",vc1);
+		return "center";
+	}
+	
+	@GetMapping("/deleteCenter/{id}")
+	public String deleteCenter(@PathVariable("id") int id, Model model) {
+		vcRepo.deleteById(id);
+		List<VaccinationCenter> vc1 = vcRepo.findAll();
+		model.addAttribute("vc",vc1);
+		return "center";
+
+	}
+	
+	@GetMapping("/addCitizen")
+	public String addCitizen(Model model) {
+		List<City> city = cityRepo.findAll();
+		List<VaccinationCenter> vc = vcRepo.findAll();
+		model.addAttribute("vc",vc);
+		model.addAttribute("city",city);
+		return "addCitizen";
+	}
+	
+	@GetMapping("/viewCitizen/{id}")
+public String viewCitizen(@PathVariable("id") int id, Model model) {
+		
+		
+		Citizens cz = cRepo.findById(id).get();
+		model.addAttribute("cz",cz);
+		return "citizensDetails";
 	}
 }

@@ -21,6 +21,20 @@ public class Citizens {
 	@ManyToOne
 	private VaccinationCenter center;
 
+	@ManyToOne
+	private Doses dose;
+	
+	
+
+	public Doses getDose() {
+		return dose;
+	}
+
+
+	public void setDose(Doses dose) {
+		this.dose = dose;
+	}
+
 
 	public String getName() {
 		return Name;

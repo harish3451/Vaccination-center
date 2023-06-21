@@ -1,14 +1,15 @@
 <head>
 <style type="text/css">
 table{
-	width: 600px;
+	width: auto;
 	border-collapse:collapse;
 	
 }
 td,th{
 	
-	padding:20px;
+	padding:10px;
 	border-width: 2;
+	text-align: center;
 }
 </style>
 </head>
