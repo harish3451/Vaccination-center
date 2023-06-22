@@ -11,6 +11,9 @@ td,th{
 	border-width: 2;
 	text-align: center;
 }
+input[type="text"],select{
+	width: 200px;
+}
 </style>
 </head>
 <% %>
@@ -18,6 +21,6 @@ td,th{
 <table border=2;>
 	<td><a href="/citizens">Citizens</a></td>
 	<td><a href="/center">Vaccination Center</a></td>
-	<td><a href="#">Log Out</a></td>
+	<td><a href="/logout">Log Out</a></td>
 	<td>Welcome, admin</td>
 </table>

@@ -29,8 +29,8 @@
 	<td>${person.center.centerName }</td>
 	<td style="text-align: center;">
 			<a href="/viewCitizen/${person.id }" ><button>View</button></a>
-			<a href=""><button>Edit</button></a>
-			<a href=""><button>Delete</button></a>
+			<a href="/editCitizen/${person.id }"><button>Edit</button></a>
+			<a href="/deleteCitizen/${person.id }"><button>Delete</button></a>
 		</td>
 </tr>
 </c:forEach> 

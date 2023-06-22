@@ -15,23 +15,12 @@
 	<td> <input type="text" name="name" /></td>
 	</tr>
 	<tr>
-	<td> Center City</td>
-	<td>
-	<select name="city" >
-	<c:forEach var="ci" items="${city }">
-		<option value="${ci.id }">${ci.city }</option>
-	</c:forEach>
-	</select>	
-	</td>
-	</tr>
-	<tr>
 		<td>Hospital</td>
 		<td>
+			<h1>${ci.id }</h1>
 			<select name="center" >
 			<c:forEach var="ce" items="${vc }">
-				
-				<option value="${ce.id }"  >${ce.centerName}</option>
-				
+				<option value="${ce.id }"  >${ce.centerName} (${ce.city.city })</option>
 			</c:forEach>
 		</td>
 	</tr>

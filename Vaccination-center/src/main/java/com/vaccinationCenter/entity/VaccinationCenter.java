@@ -4,6 +4,9 @@ package com.vaccinationCenter.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,18 +27,6 @@ public class VaccinationCenter {
 	@ManyToOne
 	private City City;
 	
-	@OneToMany
-	List<Citizens> person = new ArrayList<>();
-	
-
-	public List<Citizens> getPerson() {
-		return person;
-	}
-
-	public void setPerson(List<Citizens> person) {
-		this.person = person;
-	}
-
 	public VaccinationCenter() {
 		
 	}

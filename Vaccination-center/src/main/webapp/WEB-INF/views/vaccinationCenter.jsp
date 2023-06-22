@@ -29,7 +29,7 @@
 <tr>
 	<td>${v.id }</td>
 	<td>${v.name}</td>
-	<td><a href="#">View</a></td>
+	<td><a href="/viewCitizen/${v.id }">View</a></td>
 </tr>
 	
 </c:forEach>
